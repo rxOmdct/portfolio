@@ -1,72 +1,83 @@
 # Portfolio — Romain Dacet
 
-Thème WordPress personnel de **Romain Dacet**, étudiant en 1ʳᵉ année de BTS SIO option SISR au lycée Guy Mollet (Arras).
+Site web personnel de **Romain Dacet**, étudiant en 1ʳᵉ année de BTS SIO option SISR au lycée Guy Mollet (Arras).
 
-Le site présente mon CV, ma lettre de motivation, mes projets et ma veille technologique dans le cadre de ma recherche de stage (25 mai → 4 juillet 2026).
+Site **statique** (HTML / CSS / JavaScript, sans CMS) destiné à être hébergé sur un VPS sous le nom de domaine **rdacet.fr**.
+
+Il présente mon CV, ma lettre de motivation, mes projets et ma veille technologique dans le cadre de ma recherche de stage (25 mai → 4 juillet 2026).
 
 ## Pages
 
-- **Accueil** — navigation éditoriale numérotée
-- **CV** — parcours, formations, compétences + PDF téléchargeable
-- **Lettre de motivation** — texte + PDF intégré
-- **Projets** — liste des projets, dont *Brasserie Terroir & Savoirs*
-- **Veille technologique** — à compléter
-- **Contact** — téléphone, email, formulaire WPForms
+| Page                  | Fichier                     |
+|-----------------------|-----------------------------|
+| Accueil               | `index.html`                |
+| CV                    | `cv.html`                   |
+| Lettre de motivation  | `lettre-motivation.html`    |
+| Projets               | `projets.html`              |
+| Projet — Brasserie    | `projet-brasserie.html`     |
+| Veille technologique  | `veille.html`               |
+| Contact               | `contact.html`              |
 
-## Structure du thème
+## Structure
 
 ```
-portfolio-rd/
-├── style.css            # Métadonnées du thème + styles (requis racine)
-├── index.php            # Fallback liste d'articles (requis racine)
-├── functions.php        # Charge les modules de /inc
-├── header.php           # En-tête (logo R + menu + bouton Blog)
-├── footer.php           # Pied de page
-├── front-page.php       # Page d'accueil
-├── page.php             # Modèle de page par défaut
-├── inc/
-│   ├── setup.php        # Supports du thème, menus, enqueue des assets
-│   ├── helpers.php      # Utilitaires + compat des Page Templates déplacés
-│   └── data.php         # Données (compétences, formation, projets…)
-├── templates/           # Page Templates (Modèles de page WordPress)
-│   ├── template-cv.php
-│   ├── template-lettre.php
-│   ├── template-projets.php
-│   ├── template-projet-brasserie.php
-│   ├── template-veille.php
-│   └── template-contact.php
-└── assets/
-    ├── img/             # Images (dont brasserie/)
-    ├── js/main.js       # Menu mobile
-    └── pdf/             # CV et lettre de motivation
+.
+├── index.html, cv.html, lettre-motivation.html …   # Les pages du site
+├── assets/
+│   ├── css/style.css   # Styles
+│   ├── js/main.js      # Menu mobile + formulaire de contact
+│   ├── img/            # Images (dont brasserie/) — ajouter photo.jpg pour l'accueil
+│   └── pdf/            # CV et lettre de motivation
+├── README.md
+└── LICENSE
 ```
 
-> Les fichiers `style.css`, `index.php`, `functions.php`, `header.php`, `footer.php`,
-> `front-page.php` et `page.php` doivent rester à la racine (hiérarchie de templates WordPress).
-> Les Page Templates vivent dans `/templates` (supporté depuis WordPress 4.7) ; un filtre dans
-> `inc/helpers.php` assure la compatibilité des pages déjà assignées avant le déplacement.
+> La photo d'accueil attend le fichier `assets/img/photo.jpg`. S'il est absent, un encart de
+> remplacement s'affiche automatiquement.
+
+## Aperçu en local
+
+Aucune dépendance : il suffit d'ouvrir `index.html` dans un navigateur.
+
+Pour servir le site comme en production (liens propres) :
+
+```bash
+# Python
+python -m http.server 8000
+# puis ouvrir http://localhost:8000
+```
+
+## Formulaire de contact
+
+Le formulaire de la page Contact est géré côté client : à l'envoi, il ouvre le logiciel de
+messagerie pré-rempli (`mailto:`). Aucun serveur n'est requis. Pour un envoi automatique côté
+serveur, brancher plus tard un petit script (PHP, ou service type Formspree).
+
+## Déploiement sur VPS (Nginx)
+
+1. Copier le contenu du dépôt dans le répertoire web, ex. `/var/www/rdacet.fr` :
+   ```bash
+   rsync -av --exclude '.git' ./ user@vps:/var/www/rdacet.fr/
+   ```
+2. Bloc serveur Nginx :
+   ```nginx
+   server {
+       listen 80;
+       server_name rdacet.fr www.rdacet.fr;
+       root /var/www/rdacet.fr;
+       index index.html;
+       location / { try_files $uri $uri/ =404; }
+   }
+   ```
+3. Activer HTTPS avec Certbot :
+   ```bash
+   sudo certbot --nginx -d rdacet.fr -d www.rdacet.fr
+   ```
 
 ## Stack
 
-- WordPress (thème custom, from scratch)
-- PHP 8 · HTML5 · CSS3 · JavaScript vanilla
+- HTML5 · CSS3 · JavaScript vanilla (zéro dépendance, zéro build)
 - Polices : Fraunces, Inter, JetBrains Mono (Google Fonts)
-- Hébergement : InfinityFree
-
-## Installation
-
-1. Générer l'archive avec `make-zip.ps1` (dossier parent).
-2. WordPress → **Apparence → Thèmes → Ajouter → Téléverser** → `portfolio-rd.zip`.
-3. Créer les pages listées dans le tableau ci-dessous et leur assigner le **Modèle** correspondant via *Attributs de la page*.
-
-| Titre                 | Slug                 | Modèle                                  |
-|-----------------------|----------------------|-----------------------------------------|
-| CV                    | `cv`                 | CV                                      |
-| Lettre de motivation  | `lettre-motivation`  | Lettre de motivation                    |
-| Projets               | `projets`            | Projets                                 |
-| Brasserie T&S         | `projet-brasserie`   | Projet — Brasserie Terroir & Savoirs    |
-| Veille technologique  | `veille`             | Veille technologique                    |
-| Contact               | `contact`            | Contact                                 |
 
 ## Auteur
 
