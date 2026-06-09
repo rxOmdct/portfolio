@@ -4,7 +4,6 @@ Site web personnel de **Romain Dacet**, étudiant en 1ʳᵉ année de BTS SIO op
 
 Site **statique** (HTML / CSS / JavaScript, sans CMS) destiné à être hébergé sur un VPS sous le nom de domaine **rdacet.fr**.
 
-Il présente mon CV, ma lettre de motivation, mes projets et ma veille technologique dans le cadre de ma recherche de stage (25 mai → 4 juillet 2026).
 
 ## Structure
 
