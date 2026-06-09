@@ -13,28 +13,35 @@
 <header class="site-header">
     <div class="container">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="site-logo">
+            <span class="logo-mark" aria-hidden="true">R</span>
             <span class="site-title">
                 Romain Dacet
                 <small>Portfolio</small>
             </span>
         </a>
 
-        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+        <div class="header-actions">
+            <nav class="main-nav" aria-label="Navigation principale">
+                <?php
+                if ( has_nav_menu( 'primary' ) ) {
+                    wp_nav_menu( array(
+                        'theme_location' => 'primary',
+                        'container'      => false,
+                        'menu_class'     => '',
+                        'depth'          => 1,
+                    ) );
+                } else {
+                    prd_fallback_menu();
+                }
+                ?>
+            </nav>
 
-        <nav class="main-nav" aria-label="Navigation principale">
-            <?php
-            if ( has_nav_menu( 'primary' ) ) {
-                wp_nav_menu( array(
-                    'theme_location' => 'primary',
-                    'container'      => false,
-                    'menu_class'     => '',
-                    'depth'          => 1,
-                ) );
-            } else {
-                prd_fallback_menu();
-            }
-            ?>
-        </nav>
+            <a class="btn btn--blog" href="https://blog.rdacet.fr" target="_blank" rel="noopener">
+                Blog <span class="arrow-i" aria-hidden="true">&#8599;</span>
+            </a>
+
+            <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">&#9776;</button>
+        </div>
     </div>
 </header>
 
