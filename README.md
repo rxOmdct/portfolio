@@ -6,19 +6,6 @@ Site **statique** (HTML / CSS / JavaScript, sans CMS) destiné à être héberg�
 
 Il présente mon CV, ma lettre de motivation, mes projets et ma veille technologique dans le cadre de ma recherche de stage (25 mai → 4 juillet 2026).
 
-## Pages
-
-| Page                  | Fichier                     |
-|-----------------------|-----------------------------|
-| Accueil               | `index.html`                |
-| CV                    | `cv.html`                   |
-| Lettre de motivation  | `lettre-motivation.html`    |
-| Projets               | `projets.html`              |
-| Projet — OTA          | `projet-ota.html`           |
-| Projet — Brasserie    | `projet-brasserie.html`     |
-| Veille technologique  | `veille.html`               |
-| Contact               | `contact.html`              |
-
 ## Structure
 
 ```
