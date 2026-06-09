@@ -28,27 +28,6 @@ Le formulaire de la page Contact est géré côté client : à l'envoi, il ouvre
 messagerie pré-rempli (`mailto:`). Aucun serveur n'est requis. Pour un envoi automatique côté
 serveur, brancher plus tard un petit script (PHP, ou service type Formspree).
 
-## Déploiement sur VPS (Nginx)
-
-1. Copier le contenu du dépôt dans le répertoire web, ex. `/var/www/rdacet.fr` :
-   ```bash
-   rsync -av --exclude '.git' ./ user@vps:/var/www/rdacet.fr/
-   ```
-2. Bloc serveur Nginx :
-   ```nginx
-   server {
-       listen 80;
-       server_name rdacet.fr www.rdacet.fr;
-       root /var/www/rdacet.fr;
-       index index.html;
-       location / { try_files $uri $uri/ =404; }
-   }
-   ```
-3. Activer HTTPS avec Certbot :
-   ```bash
-   sudo certbot --nginx -d rdacet.fr -d www.rdacet.fr
-   ```
-
 ## Stack
 
 - HTML5 · CSS3 · JavaScript vanilla (zéro dépendance, zéro build)
