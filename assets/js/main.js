@@ -17,17 +17,6 @@
         });
     }
 
-    /* --- Photo d'accueil : repli si l'image est absente ---- */
-    const heroImg = document.querySelector('.hero-photo img');
-    if (heroImg) {
-        heroImg.addEventListener('error', () => {
-            const ph = document.createElement('div');
-            ph.className = 'hero-photo-placeholder';
-            ph.textContent = 'photo.jpg';
-            heroImg.replaceWith(ph);
-        });
-    }
-
     /* --- Formulaire de contact (statique, via client mail) - */
     const form = document.querySelector('form[data-contact]');
     if (form) {

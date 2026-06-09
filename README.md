@@ -14,6 +14,7 @@ Il présente mon CV, ma lettre de motivation, mes projets et ma veille technolog
 | CV                    | `cv.html`                   |
 | Lettre de motivation  | `lettre-motivation.html`    |
 | Projets               | `projets.html`              |
+| Projet — OTA          | `projet-ota.html`           |
 | Projet — Brasserie    | `projet-brasserie.html`     |
 | Veille technologique  | `veille.html`               |
 | Contact               | `contact.html`              |
