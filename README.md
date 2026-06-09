@@ -22,18 +22,6 @@ Site **statique** (HTML / CSS / JavaScript, sans CMS) destiné à être héberg�
 > La photo d'accueil attend le fichier `assets/img/photo.jpg`. S'il est absent, un encart de
 > remplacement s'affiche automatiquement.
 
-## Aperçu en local
-
-Aucune dépendance : il suffit d'ouvrir `index.html` dans un navigateur.
-
-Pour servir le site comme en production (liens propres) :
-
-```bash
-# Python
-python -m http.server 8000
-# puis ouvrir http://localhost:8000
-```
-
 ## Formulaire de contact
 
 Le formulaire de la page Contact est géré côté client : à l'envoi, il ouvre le logiciel de
