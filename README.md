@@ -1,38 +1,13 @@
 # Portfolio — Romain Dacet
 
-Site web personnel de **Romain Dacet**, étudiant en 1ʳᵉ année de BTS SIO option SISR au lycée Guy Mollet (Arras).
+Site web de **Romain Dacet**, étudiant en BTS SIO option SISR au lycée Guy Mollet (Arras). 
 
 Site **statique** (HTML / CSS / JavaScript, sans CMS) destiné à être hébergé sur un VPS sous le nom de domaine **rdacet.fr**.
 
+Le site contient deux sous domaine **blog.rdacet.fr** et **brasserie.rdacet.fr**.
 
-## Structure
+# Contenu 
 
-```
-.
-├── index.html, cv.html, lettre-motivation.html …   # Les pages du site
-├── assets/
-│   ├── css/style.css   # Styles
-│   ├── js/main.js      # Menu mobile + formulaire de contact
-│   ├── img/            # Images (dont brasserie/) — ajouter photo.jpg pour l'accueil
-│   └── pdf/            # CV et lettre de motivation
-├── README.md
-└── LICENSE
-```
-
-> La photo d'accueil attend le fichier `assets/img/photo.jpg`. S'il est absent, un encart de
-> remplacement s'affiche automatiquement.
-
-## Formulaire de contact
-
-Le formulaire de la page Contact est géré côté client : à l'envoi, il ouvre le logiciel de
-messagerie pré-rempli (`mailto:`). Aucun serveur n'est requis. Pour un envoi automatique côté
-serveur, brancher plus tard un petit script (PHP, ou service type Formspree).
-
-## Stack
-
-- HTML5 · CSS3 · JavaScript vanilla (zéro dépendance, zéro build)
-- Polices : Fraunces, Inter, JetBrains Mono (Google Fonts)
-
-## Auteur
-
-**Romain Dacet** — BTS SIO 2025-2026
+Le site contient donc mon Curriculum Vitae ainsi que ma lettre de motivation. On y retrouve mes projets au sein du BTS ainsi que des projets perso.
+Il contient aussi la Veille Technologique et un formulaire de contact.
+Mon portfolio contient un accès direct au blog de mon stage de 1er année.
