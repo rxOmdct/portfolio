@@ -70,16 +70,14 @@
         <div class="content-block">
 
             <dl class="project-meta">
-                <div class="meta-item"><dt>Type</dt><dd>Scripts d'administration Bash</dd></div>
+                <div class="meta-item"><dt>Type</dt><dd>Scripts en Bash</dd></div>
                 <div class="meta-item"><dt>Année</dt><dd>2026 — 1ʳᵉ année BTS SIO</dd></div>
-                <div class="meta-item"><dt>Environnement</dt><dd>Linux (Debian / Ubuntu)</dd></div>
+                <div class="meta-item"><dt>Environnement</dt><dd>Linux</dd></div>
                 <div class="meta-item"><dt>Statut</dt><dd>Terminé</dd></div>
             </dl>
 
             <h2>Contexte</h2>
-            <p><strong>OTA</strong> est un outil en ligne de commande développé en <strong>Bash</strong> pour administrer un serveur d'hébergement web mutualisé. L'objectif est d'<strong>automatiser</strong> les tâches répétitives d'un hébergeur (création de comptes, sites, bases de données, accès FTP/SSH) à travers un <strong>menu interactif</strong> unique, plutôt que de taper manuellement chaque commande système.</p>
-            <p>Le projet est organisé en modules : un script principal (<code>ota.sh</code>) affiche le menu et appelle des scripts spécialisés selon le choix de l'administrateur.</p>
-
+            <p><strong>OTA</strong> est un outil en ligne de commande développé en <strong>Bash</strong> qui permet d'administrer un serveur d'hébergement web. L'objectif est d'<strong>automatiser</strong> les tâches de création d'un hébergeur (création de comptes, sites, bases de données, accès FTP/SSH).</p>
             <h2>Fonctionnalités</h2>
             <ul>
                 <li><strong>Créer un hébergement</strong> — compte utilisateur, mot de passe, quota disque, FTP, base de données et SSH en une seule procédure</li>
@@ -90,35 +88,6 @@
                 <li><strong>Gestion FTP</strong> (Pure-FTPd)</li>
                 <li><strong>Informations serveur</strong> — espace disque, services actifs, sites hébergés, adresse IP</li>
                 <li><strong>Installation des paquets</strong> requis (Apache, MariaDB, Pure-FTPd, quotas)</li>
-            </ul>
-
-            <h2>Création d'un hébergement, étape par étape</h2>
-            <p>Le module de création enchaîne automatiquement les opérations système suivantes :</p>
-            <ul>
-                <li>Création d'un <strong>utilisateur Linux</strong> dédié (<code>useradd</code>) et de son mot de passe</li>
-                <li>Mise en place d'un <strong>quota disque</strong> personnalisé (<code>setquota</code>)</li>
-                <li>Création d'un <strong>compte FTP</strong> pointant vers le dossier <code>www</code> (<code>pure-pw</code>)</li>
-                <li>Création optionnelle d'une <strong>base de données MariaDB</strong></li>
-                <li>Activation optionnelle de l'<strong>accès SSH</strong></li>
-                <li>Génération d'un <strong>VirtualHost Apache</strong> et activation du site (<code>a2ensite</code>)</li>
-            </ul>
-
-            <h2>Technologies utilisées</h2>
-            <div class="tags">
-                <span class="tag">Bash</span>
-                <span class="tag">Linux</span>
-                <span class="tag">Apache2</span>
-                <span class="tag">MariaDB</span>
-                <span class="tag">Pure-FTPd</span>
-                <span class="tag">Quotas disque</span>
-                <span class="tag">SSH</span>
-                <span class="tag">WordPress</span>
-            </div>
-
-            <h2>Compétences BTS SIO (SISR) mobilisées</h2>
-            <ul>
-                <li><strong>Bloc 1 — Support et mise à disposition de services :</strong> installation et configuration de services (Apache, MariaDB, FTP), gestion des utilisateurs et des droits, supervision basique du serveur</li>
-                <li><strong>Bloc 2 — Administration des systèmes et des réseaux :</strong> automatisation par scripts, gestion des quotas, déploiement reproductible d'un environnement d'hébergement</li>
             </ul>
 
             <h2>Bilan</h2>
